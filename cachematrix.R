@@ -9,14 +9,14 @@
 
 ## makeCacheMatrix(matrix):
 ## 	This function accepts a matrix and wraps it within a list
-##	of functions that works with 'x' environment.
+##	of functions that works with parameter environment ('x')
 ##
-##	It is near copy of the example that has been given as part
-##	of the assignment makeVector().
+##	FYI: It is near copy of the example that has been given 
+##	as part of the assignment makeVector().
 
 makeCacheMatrix <- function(x = matrix()) {
 
-	# cinv holds cache inverse value
+	# cinv holds cached inverse value
 	cinv <- NULL	# initial value is nil
 
 	list (
@@ -47,8 +47,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## cacheSolve(cacheMatrix): 
 ## This method first checks if the inverse matrix is already
-## available. Else it calculates, writes into cache and returns
-## the value.
+## available in associated environment. If not then it solves
+## for the inverse, writes into cache.
+## It then returns the value.
 
 cacheSolve <- function(x, ...) {
 
@@ -56,14 +57,17 @@ cacheSolve <- function(x, ...) {
 	inv <- x$getInv()
 
 	if(is.null(inv)){
+
 		# solve for inverse over data
 		inv <- solve(x$get(),...)
+
 		# save the inverse within 'x' env
 		x$setInv(inv)
 	}
 	else {
 		message("from cache")
 	}
+
 	# Return the inverse
 	inv
 }
