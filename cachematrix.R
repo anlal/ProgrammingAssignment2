@@ -1,8 +1,6 @@
 ## -----------------------------------------------------------
 ## Programming Assignment 2
 ## Course - rprog-030
-## Author - Aditya N. Lal (aditya.n.lal@gmail.com)
-## Github - anlal (user-id)
 ## -----------------------------------------------------------
 ## 
 ## This program provides 2 functions -
@@ -10,9 +8,7 @@
 ## makeCacheMatrix(matrix):
 ## 	This function accepts a matrix and wraps it within a list
 ##	of functions that works with parameter environment ('x')
-##
-##	FYI: It is near copy of the example that has been given 
-##	as part of the assignment makeVector().
+
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -46,10 +42,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## cacheSolve(cacheMatrix): 
-## This method first checks if the inverse matrix is already
-## available in associated environment. If not then it solves
-## for the inverse, writes into cache.
-## It then returns the value.
+##	This method first checks if the inverse matrix is already
+##	available in associated environment. If not then it solves
+##	for the inverse, writes into cache.
+##	It then returns the value.
 
 cacheSolve <- function(x, ...) {
 
